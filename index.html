@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat Altuntop | Yazılım Geliştirici</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* GENEL AYARLAR & YUMUŞAK KAYDIRMA */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* SABİT MENÜ (Sticky Navbar) */
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007BFF;
+        }
+
+        /* ANA KUTU & AÇILIŞ ANİMASYONU */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            border-bottom: 3px solid #007BFF;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            display: inline-block;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* GİRİŞ BÖLÜMÜ */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header-text {
+            max-width: 60%;
+        }
+
+        .header-text h1 {
+            margin-bottom: 5px;
+            font-size: 2.8em;
+            font-weight: 600;
+        }
+
+        .title-badge {
+            display: inline-block;
+            background-color: #e9f2ff;
+            color: #007BFF;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            font-size: 1.8em;
+            margin-right: 15px;
+            color: #2c3e50;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #007BFF;
+            transform: translateY(-3px);
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #007BFF;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,123,255,0.2);
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* EĞİTİM BÖLÜMÜ */
+        .education-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fdfdfd;
+            border-left: 5px solid #007BFF;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: transform 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+        }
+
+        .education-item h3 {
+            margin: 0 0 5px 0;
+        }
+
+        .date-badge {
+            color: #888;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        /* YETENEK BARLARI */
+        .skill-container {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .progress-bar {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            height: 14px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress {
+            background-color: #007BFF;
+            height: 100%;
+            border-radius: 8px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* PROJE KARTLARI & TEKNOLOJİ ETİKETLERİ */
+        .project-grid {
+            display: flex;
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 25px;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-color: #007BFF;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+        }
+
+        .tech-tags {
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: #2c3e50;
+            color: white;
+            font-size: 0.75em;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-right: 5px;
+            font-weight: 600;
+        }
+
+        .project-link {
+            margin-top: auto;
+            font-weight: 600;
+        }
+
+        /* İLETİŞİM FORMU */
+        form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0 25px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        /* MOBİL UYUM */
+        @media (max-width: 768px) {
+            .header-section {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .header-text {
+                max-width: 100%;
+                margin-top: 25px;
+            }
+            .project-grid {
+                flex-direction: column;
+            }
+            nav {
+                flex-wrap: wrap;
+                padding: 10px;
+            }
+            nav a {
+                margin: 5px 10px;
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 30px 20px;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÜ ÇUBUĞU -->
+    <nav>
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#egitim">Eğitim</a>
+        <a href="#yetenekler">Yetenekler</a>
+        <a href="#projeler">Projeler</a>
+        <a href="#iletisim">İletişim</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- ÜST KISIM (Giriş) -->
+        <div id="hakkimda" class="header-section">
+            <div class="header-text">
+                <h1>Murat Altuntop</h1>
+                <span class="title-badge">Yazılım Geliştirici Adayı</span>
+                <p>Merhaba! Süleyman Demirel Üniversitesi Bilgisayar Mühendisliği 3. sınıf öğrencisiyim. Hem okulda hem kişisel projelerimde yazılım dünyasını keşfetmeye ve yeni sistemler inşa etmeye devam ediyorum.</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/Murat2402" target="_blank" title="GitHub Profilim"><i class="fab fa-github"></i></a>
+                    <a href="mailto:l2321032030@ogr.sdu.edu.tr" title="Bana E-posta Gönder"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <img src="denemefoto.png" alt="Murat Altuntop" class="profile-img">
+        </div>
+
+        <!-- EĞİTİM GEÇMİŞİ -->
+        <h2 id="egitim"><i class="fas fa-graduation-cap"></i> Eğitim Geçmişi</h2>
+        
+        <div class="education-item">
+            <h3>Süleyman Demirel Üniversitesi</h3>
+            <div class="date-badge">2024 - Günümüz (3. Sınıf)</div>
+            <p>Bilgisayar Mühendisliği Lisans Programı.</p>
+        </div>
+
+        <div class="education-item">
+            <h3>Hochschule Schmalkalden (Almanya)</h3>
+            <div class="date-badge">Nisan 2026 - Ağustos 2026</div>
+            <p>Erasmus+ programıyla bir dönem Almanya'da eğitim alarak hem mühendislik vizyonumu hem de yabancı dilimi geliştirme fırsatı buldum.</p>
+        </div>
+
+        <!-- YETENEKLER BÖLÜMÜ -->
+        <h2 id="yetenekler"><i class="fas fa-laptop-code"></i> Teknik Yetenekler</h2>
+        
+        <div class="skill-container">
+            <div class="skill-info"><span>C / C#</span> <span>%75</span></div>
+            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+        </div>
+
+        <div class="skill-container">
+            <div class="skill-info"><span>Java</span> <span>%70</span></div>
+            <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+        </div>
+
+        <div class="skill-container">
+            <div class="skill-info"><span>HTML & CSS</span> <span>%60</span></div>
+            <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
+        </div>
+        
+        <div class="skill-container">
+            <div class="skill-info"><span>Git & GitHub</span> <span>%65</span></div>
+            <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+        </div>
+
+        <!-- PROJELER BÖLÜMÜ -->
+        <h2 id="projeler"><i class="fas fa-folder-open"></i> Projelerim</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <h3>Film Bilgi Sistemi</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">OMDb API</span>
+                    <span class="tech-tag">File I/O</span>
+                </div>
+                <p>API entegrasyonu kullanılarak geliştirilmiş konsol tabanlı film yönetim sistemi. Gelişmiş dosya işlemleri ve kullanıcı doğrulama mekanizmaları içerir.</p>
+                <a class="project-link" href="https://github.com/Murat2402" target="_blank"><i class="fab fa-github"></i> Kaynak Kodu İncele</a>
+            </div>
+            
+            <div class="project-card">
+                <h3>Kampüs Etkinlik Takip</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                </div>
+                <p>Üniversite içerisindeki etkinlikleri modern ve duyarlı (responsive) bir arayüzle takip edebilmeyi sağlayan web tabanlı bir tasarım projesi.</p>
+                <a class="project-link" href="https://github.com/Murat2402" target="_blank"><i class="fab fa-github"></i> Kaynak Kodu İncele</a>
+            </div>
+
+        </div>
+
+        <!-- İLGİ ALANLARI -->
+        <h2><i class="fas fa-compass"></i> İlgi Alanları</h2>
+        <ul>
+            <li><b>Teknoloji & Donanım:</b> Bilgisayar bileşenleri, sistem mimarileri ve teknolojik gelişmeleri yakından takip etmek.</li>
+            <li><b>Oyun & Strateji:</b> Taktiksel derinliği olan rekabetçi oyunlar ve strateji simülasyonları.</li>
+            <li><b>Müzik:</b> Alternatif rock ve farklı türlerdeki müzik arşivleriyle vakit geçirmek.</li>
+            <li><b>Seyahat & Gastronomi:</b> Yeni şehirler keşfetmek, farklı kültürleri gözlemlemek ve dünya mutfaklarını deneyimlemek.</li>
+        </ul>
+
+        <!-- İLETİŞİM FORMU -->
+        <h2 id="iletisim"><i class="fas fa-paper-plane"></i> İletişim</h2>
+        <!-- Formspree kodunu eklemeyi unutma -->
+        <form action="https://formspree.io/f/senin_formspree_kodun" method="POST">
+            <label for="name">Adınız Soyadınız:</label>
+            <input type="text" id="name" name="name" placeholder="Adınızı girin" required>
+            
+            <label for="email">E-posta Adresiniz:</label>
+            <input type="email" id="email" name="_replyto" placeholder="ornek@mail.com" required>
+            
+            <label for="message">Mesajınız:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Projeler, işbirlikleri veya tanışmak için mesaj bırakabilirsiniz..." required></textarea>
+            
+            <input type="submit" value="Mesaj Gönder">
+        </form>
+
+    </div>
+
+    <!-- ALT BİLGİ (Footer) -->
+    <footer>
+        <p>&copy; 2026 Murat Altuntop. Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
